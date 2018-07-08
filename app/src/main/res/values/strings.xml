@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">InventoryApp1</string>
+    <!-- menu -->
+    <string name="settings">Settings</string>
+    <!-- suppliers -->
+    <string name="konzum">konzum</string>
+    <string name="plodine">plodine</string>
+    <string name="lidl">lidl</string>
+    <!-- editor -->
+    <string name="product_name">Product name</string>
+    <string name="price">Price</string>
+    <string name="unit_price">KUNA</string>
+    <string name="quantity">Quantity</string>
+    <string name="supplier">Supplier name</string>
+    <string name="supplier_phone">Supplier phone</string>
+    <string name="action_save">Save</string>
+</resources>
