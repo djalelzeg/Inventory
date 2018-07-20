@@ -622,13 +622,13 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
             switch (mSupplierName) {
                 case ProductContract.ProductEntry.KONZUM:
-                    mSupplierSpinner.setSelection(1);
+                    mSupplierSpinner.setSelection(0);
                     break;
                 case ProductContract.ProductEntry.PLODINE:
-                    mSupplierSpinner.setSelection(2);
+                    mSupplierSpinner.setSelection(1);
                     break;
                 case ProductContract.ProductEntry.LIDL:
-                    mSupplierSpinner.setSelection(3);
+                    mSupplierSpinner.setSelection(2);
                     break;
                 default:
                     mSupplierSpinner.setSelection(0);
