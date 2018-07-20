@@ -5,7 +5,5 @@
     <dimen name="activity_margin">16dp</dimen>
     <dimen name="activity_marginTop">8dp</dimen>
     <dimen name="one">1</dimen>
-
-
-
+    <dimen name="button_size">60dp</dimen>
 </resources>

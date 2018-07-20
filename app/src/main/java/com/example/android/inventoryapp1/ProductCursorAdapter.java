@@ -31,7 +31,7 @@ public class ProductCursorAdapter extends CursorAdapter {
         TextView nameTextView = view.findViewById(R.id.name);
         TextView quantityTextView = view.findViewById(R.id.quantity);
         TextView priceTextView = view.findViewById(R.id.price);
-        TextView soldTextView = view.findViewById(R.id.sold_button);
+        ImageButton soldImageButton  = view.findViewById(R.id.sold_button);
         final long id = cursor.getLong(cursor.getColumnIndexOrThrow(ProductContract.ProductEntry._ID));
         final String productName = cursor.getString(cursor.getColumnIndexOrThrow("name"));
         final String productPrice = cursor.getString(cursor.getColumnIndexOrThrow("price"));
@@ -41,7 +41,7 @@ public class ProductCursorAdapter extends CursorAdapter {
         quantityTextView.setText(productQuantity);
 
         //Declarate ImageButton
-        soldTextView.setOnClickListener(new View.OnClickListener() {
+        soldImageButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
