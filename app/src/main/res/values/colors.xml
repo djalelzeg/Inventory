@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#6002EE</color>
-    <color name="colorPrimaryDark">#0000D6</color>
-    <color name="colorAccent">#e90f07</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#56ff40</color>
     <color name="editorColorPrimary">#2D3640</color>
     <color name="editorColorPrimaryDark">#394450</color>
+    <color name="activity_textColor">#000000</color>
+    <color name="colorphoto">#ffffff</color>
 </resources>
 

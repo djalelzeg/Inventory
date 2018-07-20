@@ -3,13 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CatalogActivity">
 
-    <TextView
-        android:id="@+id/text_view_product"
+    <ListView
+        android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/activity_margin" />
+        android:layout_height="match_parent" />
+
+    <!-- Empty view for the list -->
+    <RelativeLayout
+        android:id="@+id/empty_view"
+        style="@style/RelativeLayout"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/empty_image"
+            style="@style/ImageView"
+            android:src="@drawable/inventory" />
+
+        <TextView
+            android:id="@+id/empty_title_text"
+            style="@style/TextView1"
+            android:layout_below="@+id/empty_image"
+            android:text="@string/empty_view_title_text" />
+
+        <TextView
+            android:id="@+id/empty_subtitle_text"
+            style="@style/TextView2"
+            android:layout_below="@+id/empty_title_text"
+            android:text="@string/empty_view_subtitle_text" />
+    </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -18,5 +42,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add" />
+        app:srcCompat="@drawable/ic_add" />
 </RelativeLayout>

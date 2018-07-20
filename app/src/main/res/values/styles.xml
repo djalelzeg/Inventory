@@ -33,13 +33,34 @@
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 
-    <!-- Style for the measurement units for an EditText field in the editor -->
-    <style name="EditorUnitsStyle">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_alignParentRight">true</item>
-        <item name="android:paddingRight">@dimen/activity_margin</item>
-        <item name="android:paddingTop">@dimen/activity_margin</item>
-        <item name="android:textAppearance">?android:textAppearanceSmall</item>
-    </style>
+
+<style name="RelativeLayout">
+<item name="android:layout_height">match_parent</item>
+<item name="android:layout_width">match_parent</item>
+</style>
+<style name="ImageView">
+<item name="android:layout_height">wrap_content</item>
+<item name="android:layout_width">wrap_content</item>
+<item name="android:layout_centerInParent">true</item>
+</style>
+
+<style name="TextView1">
+<item name="android:layout_height">wrap_content</item>
+<item name="android:layout_width">wrap_content</item>
+<item name="android:layout_centerHorizontal">true</item>
+<item name="android:fontFamily">sans-serif-medium</item>
+<item name="android:paddingTop">@dimen/activity_margin</item>
+<item name="android:textAppearance">?android:textAppearanceMedium</item>
+</style>
+
+<style name="TextView2">
+<item name="android:layout_height">wrap_content</item>
+<item name="android:layout_width">wrap_content</item>
+<item name="android:layout_centerHorizontal">true</item>
+<item name="android:fontFamily">sans-serif-medium</item>
+<item name="android:paddingTop">@dimen/activity_marginTop</item>
+<item name="android:textAppearance">?android:textAppearanceSmall</item>
+<item name="android:textColor">@color/activity_textColor</item>
+</style>
+
 </resources>
