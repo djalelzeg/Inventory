@@ -126,6 +126,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         Button btnSelectImage = findViewById(R.id.ib_product_select);
 
         btnSelectImage.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
                 selectImage();
@@ -512,7 +513,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             // No need to create ContentValues and no need to do any ContentProvider operations.
             Toast.makeText(this, R.string.editor_insert_product_failed, Toast.LENGTH_SHORT).show();
             return false;
-        }else{Toast.makeText(this, R.string.editor_insert_product_successful, Toast.LENGTH_LONG).show();
+        }else{
 
         // Create a ContentValues object where column names are the keys,
         // and product attributes from the editor are the values.
