@@ -40,17 +40,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import com.example.android.inventoryapp1.data.ProductContract;
-import com.example.android.inventoryapp1.data.ProductDbHelper;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -501,14 +498,18 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
         // Check if this is supposed to be a new product
         // and check if all the fields in the editor are blank
+
+
         if (mCurrentProductUri == null &&
-                TextUtils.isEmpty(productNameString) && productPriceDouble == 0.0 &&
-                productQuantityInt == 0 && TextUtils.isEmpty(supplierPhoneString)) {
+                TextUtils.isEmpty(productNameString) || productPriceDouble == 0.0 ||
+                productQuantityInt == 0 || TextUtils.isEmpty(supplierPhoneString)) {
             // Since no fields were modified, we can return early without creating a new product.
             // No need to create ContentValues and no need to do any ContentProvider operations.
+            Toast.makeText(this, R.string.editor_insert_product_failed, Toast.LENGTH_LONG).show();
             return true;
+        }else{Toast.makeText(this, getString(R.string.editor_insert_product_successful),
+                Toast.LENGTH_SHORT).show();
         }
-
         // Create a ContentValues object where column names are the keys,
         // and product attributes from the editor are the values.
         ContentValues values = new ContentValues();
@@ -642,7 +643,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mProductName.setText("");
         mProductPrice.setText("0");
         mProductQuantity.setText("0");
-        mProductImage.setImageResource(R.drawable.ic_photo);
+        mProductImage.setImageResource(R.mipmap.ic_launcher_round);
         mSupplierPhone.setText("");
     }
 
