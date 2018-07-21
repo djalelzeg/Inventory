@@ -37,9 +37,9 @@ public class ProductDbHelper extends SQLiteOpenHelper {
                 + ProductContract.ProductEntry.COLUMN_PRODUCT_NAME + " TEXT NOT NULL, "
                 + ProductContract.ProductEntry.COLUMN_PRODUCT_PRICE + " INTEGER NOT NULL DEFAULT 0, "
                 + ProductContract.ProductEntry.COLUMN_PRODUCT_QUANTITY + " INTEGER NOT NULL DEFAULT 0, "
-                + ProductContract.ProductEntry.COLUMN_PRODUCT_IMAGE + " BLOB, "
+                + ProductContract.ProductEntry.COLUMN_PRODUCT_IMAGE + " BLOB NOT NULL, "
                 + ProductContract.ProductEntry.COLUMN_PRODUCT_SUPPLIER_NAME + " TEXT NOT NULL, "
-                + ProductContract.ProductEntry.COLUMN_PRODUCT_SUPPLIER_PHONE + " INTEGER);";
+                + ProductContract.ProductEntry.COLUMN_PRODUCT_SUPPLIER_PHONE + " INTEGER NOT NULL );";
         // Execute the SQL statement
         db.execSQL(SQL_CREATE_PRODUCT_TABLE);
     }

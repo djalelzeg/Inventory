@@ -75,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="53dp"
                 android:layout_margin="10dp"
-                android:src="@mipmap/ic_launcher_round" />
+                android:src="@drawable/ic_photo" />
 
             <Button
                 android:id="@+id/ib_product_select"

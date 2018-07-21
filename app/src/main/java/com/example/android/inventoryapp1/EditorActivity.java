@@ -386,7 +386,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                     String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
                     destination = new File(Environment.getExternalStorageDirectory() + "/" +
                             getString(R.string.app_name), "IMG_" + timeStamp + ".jpg");
-                    FileOutputStream fo;
+                    FileOutputStream fo = null;
                     try {
                         destination.createNewFile();
                         fo = new FileOutputStream(destination);
@@ -396,6 +396,11 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
+                    }finally {
+                        if (fo != null) {
+
+                            fo.close();
+                        }
                     }
 
                     Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, 500, 500,
@@ -505,11 +510,10 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 productQuantityInt == 0 || TextUtils.isEmpty(supplierPhoneString)) {
             // Since no fields were modified, we can return early without creating a new product.
             // No need to create ContentValues and no need to do any ContentProvider operations.
-            Toast.makeText(this, R.string.editor_insert_product_failed, Toast.LENGTH_LONG).show();
-            return true;
-        }else{Toast.makeText(this, getString(R.string.editor_insert_product_successful),
-                Toast.LENGTH_SHORT).show();
-        }
+            Toast.makeText(this, R.string.editor_insert_product_failed, Toast.LENGTH_SHORT).show();
+            return false;
+        }else{Toast.makeText(this, R.string.editor_insert_product_successful, Toast.LENGTH_LONG).show();
+
         // Create a ContentValues object where column names are the keys,
         // and product attributes from the editor are the values.
         ContentValues values = new ContentValues();
@@ -520,7 +524,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         values.put(ProductContract.ProductEntry.COLUMN_PRODUCT_SUPPLIER_NAME, mSupplier);
         values.put(ProductContract.ProductEntry.COLUMN_PRODUCT_SUPPLIER_PHONE, supplierPhoneString);
 
-        try {
+    try {
             // Determine if this is a new or existing product by checking if mCurrentProductUri is null or not
             if (mCurrentProductUri == null) {
                 // This is a NEW product, so insert a new product into the provider,
@@ -561,7 +565,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             return false;
         }
     }
-
+    }
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         // Since the editor shows all products attributes, define a projection that contains
@@ -643,7 +647,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mProductName.setText("");
         mProductPrice.setText("0");
         mProductQuantity.setText("0");
-        mProductImage.setImageResource(R.mipmap.ic_launcher_round);
+        mProductImage.setImageResource(R.drawable.ic_photo);
         mSupplierPhone.setText("");
     }
 
